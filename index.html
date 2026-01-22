@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="style.css">
 <head>
     <title>Clint Bradshaw</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-    <h1>Main Heading</h1>
-    <h2>Heading level 2</h2>
-    <h3>Heading level 3</h3>
-    <h4>Heading level 4</h4>    
+<header class="collageOne">
+    <!--These are my headers-->
+    <h1 style="color: turquoise; font-size: 50px;">
+    Main Heading</h1>
+    <h2 style="font-size: 25px;">
+        Heading level 2 
+    </h2>
+    <h3 id="pink" > Heading level 3 </h3>
+    <h4> Heading level 4 </h4>    
 </header>
+<!--END of headers-->
+    <h5 style="font-family: 'Oswald', sans-serif;" > Heading level 5 </h5>    
 
 <main>
     <section>
-        <p>Hello World</p>
-        <p>This is my paragraph</p>
-        <p>In a demo class right now</p>
+        <p class="collage"> Hello World<br>
+        This is my paragraph<br>
+        In a demo class right now</p>
     </section>
 
 <section>
-    <div>
-        <p>This is a paragraph of text. It's always going to be a single paragraph</p>
+    <div class="collageTwo">
+        <p>
+            This is a paragraph of text. It's always going to be a single paragraph
+        </p>
         <span>This is inline text.</span>
         <strong>This is bold text.</strong>
     </div>
@@ -51,7 +63,9 @@
     Your browser does not support the video tag.
     </video>
 
-    <img src="https://t3.ftcdn.net/jpg/01/18/26/32/360_F_118263222_BQHsNThJGUZuPQdhP2VeGluvLaSVm3co.jpg" alt="This is an image of a butterfly on a branch">
+    <img class="butterfly-img"
+    src="https://t3.ftcdn.net/jpg/01/18/26/32/360_F_118263222_BQHsNThJGUZuPQdhP2VeGluvLaSVm3co.jpg" 
+    alt="This is an image of a butterfly on a branch">
 
     <details open>
         <summary>Click to learn more</summary>
@@ -62,6 +76,43 @@
     <meter value="0.6">60%</meter> 
 </section>
 
+<div class="cropContainer"
+     style="width:200px;height:200px;
+     background-color: #ff5090;"
+     >
+
+     <img style="position: absolute;
+     top:-30px;left:-100px"
+     src="https://www.thoughtco.com/thmb/zqBNfA_xRpjDAjPNWq9KB3yVlZM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Caterpillar-58b9e64d3df78c353c59f17d.jpg"
+     alt="this is an image of a Caterpillar"
+     width="400px" height="auto"
+     pos
+    >
+</div>
+
+<section>
+    <div class="container">
+        <p class="center">this is going to be the center !</p>
+    </div>
+</section>
+
+
+<section>
+    <div class="display-exp">
+    
+    <div style="background-color: blue;flex:3;">
+    Testing the display</div>
+    
+    <div style="background-color: #ff5090;flex:7;">
+    Another paragraph for testing</div>
+
+    <div class="flex-container">
+        I am in the center
+    </div>
+</section>
+
+
+</main>
 
 </body>
 </html>

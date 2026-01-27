@@ -1,0 +1,111 @@
+body {
+    /* use a dark gradient background to make an arcade cabinet screen */
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #f0f0f0;
+    font-family: 'Arial Black', 'Impact', sans-serif; /* Thick, loud fonts */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* bckground covers the whole screen */
+}
+
+h1, h2 {
+    text-transform: uppercase; /* YELL THE TITLES LIKE AN ANNOUNCER */
+    letter-spacing: 2px;
+    margin-top: 0;
+}
+
+h1#page-title {
+    /* This creates a Graffiti text effect like SF6 */
+    color: #ffeb3b; 
+    text-shadow: 4px 4px 0px #800080; 
+    font-size: 3rem;
+}
+
+h2 {
+    border-bottom: 3px solid #00d2ff; /* A Super Mete blue line */
+    display: inline-block; /* Makes the border only as wide as the text */
+}
+
+#main-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+
+
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 30px;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark box */
+    padding: 25px;
+    
+    /* The Fighting Game Look: Borders and Angles */
+    border: 2px solid #555;
+    border-left: 10px solid #e60012; /* Thick red "Player 1" bar on the left */
+    
+    /* This creates that "Speed" look by tilting the box slightly */
+    box-shadow: 0 0 15px rgba(230, 0, 18, 0.4); /* Red glow */
+}
+
+.crop-container {
+    width: 100%;
+    height: auto; 
+    position: relative; 
+    overflow: hidden; 
+    
+    border: 4px solid #fff;
+    box-shadow: 5px 5px 0px #000; 
+    margin: 20px 0;
+}
+
+    
+  
+
+@keyframes fightEntrance {
+    0% {
+        opacity: 0;
+        transform: scale(2.5); /* Start real big */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* Go to normal size */
+    }
+}
+
+.main-header {
+    text-align: center;
+    padding: 40px 20px;
+    animation: fightEntrance 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
+}
+
+.btn-link {
+    display: block; /* making a button */
+    background: linear-gradient(90deg, #e60012, #9d000c);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); /* Cuts the corners*/
+    
+    transition: all 0.2s ease; /* transition to snap */
+}
+
+/* HOVER STATE */
+.btn-link:hover {
+    background: linear-gradient(90deg, #ffeb3b, #fbc02d); 
+    color: black;
+    transform: translateX(10px); /* moves slightly right like a menu selection */
+    box-shadow: -5px 0px 15px rgba(255, 235, 59, 0.5); /* glows */
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8em;
+    opacity: 0.7;
+}

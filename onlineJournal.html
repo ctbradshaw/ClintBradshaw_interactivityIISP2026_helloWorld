@@ -4,21 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Clint's Online Journal</title>
+  <link rel="stylesheet" href="styletwo.css">
 </head>
 
 <body>
-  <header>
-    <h1>Online Journal</h1>
-      <p>
-        Welcome to my page, where I talk about my love for Street Fighter!
-      </p>
+  <header class="main-header">
+    <h1 id="page-title">Online Journal</h1>
+    <p class="intro-text">
+      Welcome to my page, where I talk about my love for Street Fighter!
+    </p>
   </header>
 
-  <main>
+  <main id="main-container">
     
-    <section>
+    <section class="card content-section">
       <h2>How I got into it</h2>
-
       <div>
         <p>
           I got into Street Fighter when I was around 7 or 8 years old, when my father had got me this game called Street Fighter IV 
@@ -29,7 +29,7 @@
         </p>
 
         <p>
-          <strong>Street Fighter</strong> is on of my favorite game series of all time. 
+          <strong>Street Fighter</strong> is one of my favorite game series of all time. 
           I have played the 3rd game, the 4th, 5th, the crossover X Tekken, and the newest right now is the 6th game. I played so much after because I was enthralled with it, I got 
           some natural skill somewhat. I played the 4th game, 3rd strike, and then X Tekken. By X Tekken, I was decent.
         </p>
@@ -44,9 +44,8 @@
       </div>
     </section>
 
-    <section>
+    <section class="card content-section">
       <h2>How I train</h2>
-
       <div>
         <p>
           <i>1. Don't tilt.</i> If ranked sessions or players get me tilted, you cannot play through tilt. You WILL play worse because you are emotional. Speaking from experience.
@@ -64,20 +63,19 @@
           Some fan art of <strong>Chun-Li!</strong>
         </p>
 
-        <p>
-          <br />
+        <div class="crop-container">
           <img
             src="https://pbs.twimg.com/media/FnlV1Y9XgAEI-YF.jpg"
-            alt="Placeholder image for the journal page"
-            width="420"
-
-            
+            alt="Fan art of Chun-Li from Street Fighter"
+            class="cropped-image"
           />
-          <br />
-                    <a href="https://youtu.be/NgZcFa52o-Y?si=rRC41x9YpUW0Mv2Q" target="_blank" title="Opens in a new tab">
-            Movie Trailer for the upcoming 2026 Street Fighter Movie
+        </div>
+        
+        <div class="link-container">
+          <a class="btn-link" href="https://youtu.be/NgZcFa52o-Y?si=rRC41x9YpUW0Mv2Q" target="_blank" title="Opens in a new tab">
+             Watch the SF6 Movie Trailer
           </a>
-        </p>
+        </div>
       </div>
     </section>
   </main>

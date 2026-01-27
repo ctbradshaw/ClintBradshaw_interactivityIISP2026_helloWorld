@@ -1,114 +1,264 @@
-body {
-    /* use a dark gradient background to make an arcade cabinet screen */
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-    color: #f0f0f0;
-    font-family: 'Arial Black', 'Impact', sans-serif; /* Thick, loud fonts */
-    margin: 0;
-    padding: 0;
-    min-height: 100vh; /* bckground covers the whole screen */
+/* My Street Fighter Journal CSS 
+   Made by: Clint
+   I tried to make it look like an arcade game! */
+
+/* === COLOR VARIABLES === 
+   (I learned you can set these at the top to reuse colors easily) */
+:root {
+    --red: #e60012;
+    --yellow: #ffeb3b;
+    --blue: #00d2ff;
+    --purple: #800080;
+    --gold: #fbc02d;
 }
 
+/* BODY - The main background */
+body {
+    /* Dark gradient to look like an arcade cabinet screen */
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    background-attachment: fixed;
+    
+    color: #f0f0f0;
+    font-family: 'Trebuchet MS', 'Lucida Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* HEADERS - Make them LOUD like fighting gme */
 h1, h2 {
-    text-transform: uppercase; /* YELL THE TITLES LIKE AN ANNOUNCER */
+    text-transform: uppercase; 
     letter-spacing: 2px;
     margin-top: 0;
+    font-family: 'Impact', 'Arial Black', sans-serif;
 }
 
 h1#page-title {
-    /* This creates a Graffiti text effect like SF6 */
-    color: #ffeb3b; 
-    text-shadow: 4px 4px 0px #800080; 
+    /* Graffiti effect like in SF6 */
+    color: var(--yellow);
+    text-shadow: 3px 3px 0px var(--purple), 
+                 6px 6px 0px rgba(0,0,0,0.3);
     font-size: 3rem;
+    margin-bottom: 15px;
+    
+    /* add a subtle pulse animation ! */
+    animation: titlePulse 2s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
 }
 
 h2 {
-    border-bottom: 3px solid #00d2ff; /* A Super Mete blue line */
-    display: inline-block; /* Makes the border only as wide as the text */
+    color: var(--blue);
+    font-size: 1.8rem;
+    border-bottom: 3px solid var(--blue); /* tried making a Super Meter bar */
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
 }
 
-#main-container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-
-
-    display: grid;
-    grid-template-columns: 1fr; 
-    gap: 30px;
+/* Make text yellow and italic text blue */
+strong {
+    color: var(--yellow);
+    font-weight: bold;
 }
 
-.card {
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark box */
-    padding: 25px;
-    
-    /* The Fighting Game Look: Borders and Angles */
-    border: 2px solid #555;
-    border-left: 10px solid #e60012; /* Thick red "Player 1" bar on the left */
-    
-    /* This creates that "Speed" look by tilting the box slightly */
-    box-shadow: 0 0 15px rgba(230, 0, 18, 0.4); /* Red glow */
+i {
+    color: var(--blue);
 }
 
-.crop-container {
-    width: 100%;
-    height: auto; 
-    position: relative; 
-    overflow: hidden; 
-    
-    border: 4px solid #fff;
-    box-shadow: 5px 5px 0px #000; 
-    margin: 20px 0;
+p {
+    margin: 15px 0;
 }
 
-    
-  
+
+/* === HEADER SECTION === */
+.main-header {
+    text-align: center;
+    padding: 40px 20px;
+    /* Entrance animation like */
+    animation: fightEntrance 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
 
 @keyframes fightEntrance {
     0% {
         opacity: 0;
-        transform: scale(2.5); /* Start real big */
+        transform: scale(2.5) rotate(5deg);
     }
     100% {
         opacity: 1;
-        transform: scale(1); /* Go to normal size */
+        transform: scale(1) rotate(0deg);
     }
 }
 
-.main-header {
-    text-align: center;
-    padding: 40px 20px;
-    animation: fightEntrance 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
+.intro-text {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+
+/*- Using Grid*/
+#main-container {
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    
+    /* GRID makes it responsive automatically */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+/* On bigger screens show 2 columns side by side, hope this works */
+@media (min-width: 900px) {
+    #main-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* === CONTENT CARDS === 
+   These are the boxes that hold my text */
+.card {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 25px;
+    border-radius: 8px;
+    
+    /* Borders that look like health bars */
+    border: 2px solid #555;
+    border-left: 8px solid var(--red); 
+    border-top: 2px solid var(--yellow);
+    
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5),
+                0 0 20px rgba(230, 0, 18, 0.2);
+    
+    transition: all 0.3s ease;
+}
+
+/* Card lifts up when you hover over it */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6),
+                0 0 30px rgba(230, 0, 18, 0.4);
+    border-left-color: var(--yellow);
+}
+
+
+/* === IMAGE CONTAINR */
+.crop-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    
+    position: relative; 
+    
+    border: 4px solid white;
+    border-radius: 8px;
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.8),
+                0 0 20px rgba(255, 235, 59, 0.3);
+    overflow: hidden;
+}
+
+/* Corner accent using position:absolute */
+.crop-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: var(--yellow);
+    z-index: 1;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.crop-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: var(--red);
+    z-index: 1;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.cropped-image {
+    /* Shows the full image, was cropping out b4 */
+    width: 100%;
+    height: auto;
+    display: block;
+    
+    transition: transform 0.5s ease;
+}
+
+/* Zoom effect on hover */
+.cropped-image:hover {
+    transform: scale(1.05);
+}
+
+
+/* === BUTTON STYLE=== 
+   Made it look like a fighting game menu */
+.link-container {
+    margin-top: 20px;
 }
 
 .btn-link {
-    display: block; /* making a button */
-    background: linear-gradient(90deg, #e60012, #9d000c);
+    display: block;
+    max-width: 400px;
+    margin: 0 auto;
+    
+    background: linear-gradient(90deg, var(--red), #9d000c);
     color: white;
-    padding: 15px;
+    padding: 15px 25px;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
-    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); /* Cuts the corners*/
+    border-radius: 8px;
     
-    transition: all 0.2s ease; /* transition to snap */
+    
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), 
+                       calc(100% - 10px) 100%, 0 100%, 0 10px);
+    
+    border: 2px solid transparent;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
 }
 
-/* HOVER STATE */
+/* HOVER STATE - button SELECT */
 .btn-link:hover {
-    background: linear-gradient(90deg, #ffeb3b, #fbc02d); 
+    background: linear-gradient(90deg, var(--yellow), var(--gold));
     color: black;
-    transform: translateX(10px); /* moves slightly right like a menu selection */
-    box-shadow: -5px 0px 15px rgba(255, 235, 59, 0.5); /* glows */
+    transform: translateX(10px) scale(1.02);
+    box-shadow: -5px 0px 20px rgba(255, 235, 59, 0.6),
+                0 4px 15px rgba(0,0,0,0.5);
+    border-color: var(--gold);
     cursor: pointer;
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 0.8em;
-    opacity: 0.7;
+.btn-link:active {
+    transform: translateX(10px) scale(0.98);
 }
 
 
-/*-Updated version*/
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+footer strong {
+    color: var(--blue);
+}
+
+
+
